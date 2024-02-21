@@ -19,7 +19,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
+  return (  
     <html lang="en">
       <body className={cn("font-IBMPlex antialiased", ibm_plex_sans.variable)}>{children}</body>
     </html>
