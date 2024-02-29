@@ -105,6 +105,7 @@ export const download = (url: string, filename: string) => {
 
 export const deepMergeObjects = (obj1: any, obj2: any) => {
   if(obj2 === null || obj2 === undefined) return obj1;
+  if(obj1 === null || obj1 === undefined) return obj2;
 
   let output = { ...obj2 };
 
