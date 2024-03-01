@@ -4,7 +4,7 @@ import { Webhook } from "svix";
 import { clerkClient } from "@clerk/nextjs";
 import { WebhookEvent } from "@clerk/nextjs/server";
 
-import { createUser, deleteUser, updateUser } from "@/lib/actions/user.action";
+import { createUser, deleteUser, updateUser } from "@/lib/actions/user.actions";
 
 export async function POST(req: Request) {
     const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET as string;
