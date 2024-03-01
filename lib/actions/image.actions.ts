@@ -139,7 +139,7 @@ export async function getAllImages({limit = 9, page = 1, searchQuery = ""}: GetA
 
         return {
             data: JSON.parse(JSON.stringify(images)),
-            total: Math.ceil(totalImages / limit),
+            totalPage: Math.ceil(totalImages / limit),
             savedImages
         }
 
