@@ -20,7 +20,7 @@ const InsufficientCreditsModal = () => {
                         </AlertDialogCancel>
                     </div>
 
-                    <Image src="/assets/icons/stacked-coins.svg" alt="Credit coins" width={462} height={122} className="cursor-pointer" />
+                    <Image src="/assets/images/stacked-coins.png" alt="Credit coins" width={462} height={122} />
 
                     <AlertDialogTitle>
                         Oops... Looks like you&#39;ve run out of free credits!
