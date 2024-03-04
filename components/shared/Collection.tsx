@@ -66,7 +66,7 @@ export const Collection = ({hasSearch = false, images, totalPages = 1, page}: Co
 
                     <p className="flex-center p-16-medium w-fit flex-1">{page} / {totalPages}</p>
 
-                    <Button className="button w-32 bg-purple-gradient bg-cover text-white" onClick={() => onPageChange("next")} >disabled={Number(page) >= totalPages}
+                    <Button className="button w-32 bg-purple-gradient bg-cover text-white" onClick={() => onPageChange("next")} disabled={Number(page) >= totalPages}>
                         <PaginationNext className="hover:bg-transparent hover:text-white" />
                     </Button>
                 </PaginationContent>
