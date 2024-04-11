@@ -30,12 +30,12 @@ const MediaUploader = ({onValueChange, setImage, image, publicId, type}: MediaUp
 
     onValueChange(result?.info?.public_id);
 
-    toast({
-      title: "Image uploaded successfully.",
-      description: "1 credit was deducted from your account",
-      duration: 5000,
-      className: "success-toast"
-    })
+    // toast({
+    //   title: "Image uploaded successfully.",
+    //   description: "1 credit was deducted from your account",
+    //   duration: 5000,
+    //   className: "success-toast"
+    // })
   }
 
   function onUploadErrorHandler() {

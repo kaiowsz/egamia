@@ -119,47 +119,52 @@ export const navLinks = [
     },
   ];
   
-  export const transformationTypes = {
-    restore: {
-      type: "restore",
-      title: "Restore Image",
-      subTitle: "Refine images by removing noise and imperfections",
-      config: { restore: true },
-      icon: "image.svg",
+export const transformationTypes = {
+  restore: {
+    type: "restore",
+    title: "Restore Image",
+    subTitle: "Refine images by removing noise and imperfections",
+    config: { restore: true },
+    icon: "image.svg",
+    creditFee: -1
+  },
+  removeBackground: {
+    type: "removeBackground",
+    title: "Background Remove",
+    subTitle: "Removes the background of the image using AI",
+    config: { removeBackground: true },
+    icon: "camera.svg",
+    creditFee: -2
+  },
+  fill: {
+    type: "fill",
+    title: "Generative Fill",
+    subTitle: "Enhance an image's dimensions using AI outpainting",
+    config: { fillBackground: true },
+    icon: "stars.svg",
+    creditFee: -1
+  },
+  remove: {
+    type: "remove",
+    title: "Object Remove",
+    subTitle: "Identify and eliminate objects from images",
+    config: {
+      remove: { prompt: "", removeShadow: true, multiple: true },
     },
-    removeBackground: {
-      type: "removeBackground",
-      title: "Background Remove",
-      subTitle: "Removes the background of the image using AI",
-      config: { removeBackground: true },
-      icon: "camera.svg",
+    icon: "scan.svg",
+    creditFee: -1
+  },
+  recolor: {
+    type: "recolor",
+    title: "Object Recolor",
+    subTitle: "Identify and recolor objects from the image",
+    config: {
+      recolor: { prompt: "", to: "", multiple: true },
     },
-    fill: {
-      type: "fill",
-      title: "Generative Fill",
-      subTitle: "Enhance an image's dimensions using AI outpainting",
-      config: { fillBackground: true },
-      icon: "stars.svg",
-    },
-    remove: {
-      type: "remove",
-      title: "Object Remove",
-      subTitle: "Identify and eliminate objects from images",
-      config: {
-        remove: { prompt: "", removeShadow: true, multiple: true },
-      },
-      icon: "scan.svg",
-    },
-    recolor: {
-      type: "recolor",
-      title: "Object Recolor",
-      subTitle: "Identify and recolor objects from the image",
-      config: {
-        recolor: { prompt: "", to: "", multiple: true },
-      },
-      icon: "filter.svg",
-    },
-  };
+    icon: "filter.svg",
+    creditFee: -1
+  },
+};
   
   export const aspectRatioOptions = {
     "1:1": {

@@ -6,17 +6,23 @@ import { PlaceholderValue } from "next/dist/shared/lib/get-img-props"
 import Image from "next/image"
 import React from "react"
 
-const TransformedImage = ({image, type, title, transformationConfig, isTransforming, setIsTransforming, hasDownload = false}: TransformedImageProps) => {
+const TransformedImage = ({image, type, title, transformationConfig, isTransforming, setIsTransforming, hasDownload = false}: TransformedImageProps) => { 
+  
+  console.log(image)
 
   function downloadHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     event.preventDefault();
 
-    download(getCldImageUrl({
+    const imgDownload = getCldImageUrl({
       width: image?.width,
       height: image?.height,
       src: image?.publicId,
+
       ...transformationConfig
-    }), title);
+    })
+
+    console.log(imgDownload)
+
   }
 
   return (
@@ -32,7 +38,15 @@ const TransformedImage = ({image, type, title, transformationConfig, isTransform
 
       {image?.publicId && transformationConfig ? (
         <div className="relative">
-          <CldImage height={getImageSize(type, image, "height")} width={getImageSize(type, image, "width")} src={image?.publicId} alt={image.title} sizes={"(max-width: 767px) 100vw, 50vw"} placeholder={dataUrl as PlaceholderValue} className="transformed-image"
+
+          <CldImage 
+          height={getImageSize(type, image, "height")} 
+          width={getImageSize(type, image, "width")} 
+          src={(image?.publicId)} 
+          alt={image.title} 
+          sizes={"(max-width: 767px) 100vw, 50vw"} 
+          placeholder={dataUrl as PlaceholderValue} 
+          className="transformed-image"
           onLoad={() => {
             setIsTransforming && setIsTransforming(false);
           }} 

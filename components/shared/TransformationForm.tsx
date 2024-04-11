@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormDescription, FormField, FormLabel, FormItem, FormMessage } from "@/components/ui/form"
 import { Input } from "../ui/input";
-import { aspectRatioOptions, creditFee, defaultValues, transformationTypes } from "@/constants";
+import { aspectRatioOptions, defaultValues, transformationTypes } from "@/constants";
 import { CustomField } from "./CustomField";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useEffect, useState, useTransition } from "react";
@@ -19,6 +19,8 @@ import { addImage, updateImage } from "@/lib/actions/image.actions";
 import { useRouter } from "next/navigation";
 import InsufficientCreditsModal from "./InsufficientCreditsModal";
 
+import { toast } from "../ui/use-toast";
+
 export const formSchema = z.object({
     title: z.string(),
     aspectRatio: z.string().optional(),
@@ -29,7 +31,10 @@ export const formSchema = z.object({
 
 const TransformationForm = ({action, data = null, userId, type, creditBalance, config = null}: TransformationFormProps) => {
 
+
     const transformationType = transformationTypes[type];
+
+    const creditFee = transformationTypes[type].creditFee;
 
     const [image, setImage] = useState(data);
     const [newTransformation, setNewTransformation] = useState<Transformations | null>(null);
@@ -108,7 +113,7 @@ const TransformationForm = ({action, data = null, userId, type, creditBalance, c
                         },
                         userId,
                         path: `/transformations/${data._id}`
-                    })
+                    });
 
                     if(updatedImage) {
                         router.push(`/transformations/${updatedImage._id}`) 
@@ -161,7 +166,14 @@ const TransformationForm = ({action, data = null, userId, type, creditBalance, c
         setNewTransformation(null);
 
         startTransition(async () => {
-            await updateCredits(userId, creditFee)
+            await updateCredits(userId, creditFee);
+
+            toast({
+                title: "Image uploaded successfully.",
+                description: `${Math.abs(creditFee) > 1 ? `${Math.abs(creditFee)} credits` : "1 credit"} was deducted from your account`,
+                duration: 5000,
+                className: "success-toast"
+            })
         })
     }
 
@@ -169,6 +181,8 @@ const TransformationForm = ({action, data = null, userId, type, creditBalance, c
         if(image && (type === "restore" || type === "removeBackground")) {
             setNewTransformation(transformationType.config)
         }
+
+        console.log(image);
     }, [image, transformationType.config, type])
 
     return (
@@ -225,12 +239,13 @@ const TransformationForm = ({action, data = null, userId, type, creditBalance, c
                 </div>
 
                 <div className="flex flex-col gap-4">
+                    <p>*Note: the transformation may take up to 5 minutes or more.</p>
                     <Button 
                     type="button" 
                     className="submit-button capitalize"
                     onClick={onTransformHandler} 
                     disabled={isTransforming || newTransformation === null}>
-                        {isTransforming ? "Transforming..." : "Apply transformation"}
+                        {isTransforming ? "Transforming..." : `Apply transformation (${Math.abs(creditFee)} Credits)`}
                     </Button>
 
 
