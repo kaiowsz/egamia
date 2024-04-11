@@ -76,7 +76,7 @@
 }
 
 .auth {
-  @apply flex-center min-h-screen w-full bg-gray-200;
+  @apply flex-center min-h-screen w-full bg-transparent;
 }
 
 .root {
