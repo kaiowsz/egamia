@@ -91,7 +91,7 @@ const PaginationNext = ({
 )
 PaginationNext.displayName = "PaginationNext"
 
-const PaginationEllipsis = ({
+const PaginationEllipsis: any = ({
   className,
   ...props
 }: React.ComponentProps<"span">) => (

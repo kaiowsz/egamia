@@ -17,6 +17,8 @@ const Profile = async ({ searchParams }: SearchParamProps) => {
   const user = await getUserById(userId);
   const images = await getUserImages({ page, userId: user._id });
 
+  
+
   return (
     <>
       <Header title="Profile" />

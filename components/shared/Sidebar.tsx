@@ -15,7 +15,8 @@ const Sidebar = () => {
     <aside className="sidebar">
         <div className="flex size-full flex-col gap-4">
             <Link href="/" className="sidebar-logo">
-                <Image src="/assets/images/logo-text.svg" alt="logo" height={28} width={180} />
+                {/* <Image src="/assets/images/logo-text.svg" alt="logo" height={28} width={180} /> */}
+                <h1 className="text-3xl font-bold uppercase text-center text-purple-500">EGAMIA</h1>
             </Link>
 
             <nav className="sidebar-nav">

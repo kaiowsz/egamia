@@ -12,8 +12,9 @@ import Link from "next/link";
 const TransformationsPage = async ({params: {id}}: SearchParamProps) => {
   const { userId } = auth();
   
-  
   const image = await getImageById(id);
+
+  console.log(image)
 
   return (
     <>
