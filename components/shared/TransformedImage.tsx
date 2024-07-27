@@ -12,7 +12,7 @@ const TransformedImage = ({image, type, title, transformationConfig, isTransform
 
   function downloadHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     event.preventDefault();
-
+    
     const imgDownload = getCldImageUrl({
       width: image?.width,
       height: image?.height,
@@ -21,8 +21,9 @@ const TransformedImage = ({image, type, title, transformationConfig, isTransform
       ...transformationConfig
     })
 
-    console.log(imgDownload)
+    if(!imgDownload) return;
 
+    download(imgDownload, title);
   }
 
   return (
