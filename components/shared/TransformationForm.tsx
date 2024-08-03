@@ -63,6 +63,17 @@ const TransformationForm = ({action, data = null, userId, type, creditBalance, c
     async function onSubmit(values: z.infer<typeof formSchema>) {
         setIsSubmitting(true);
 
+        if(!values.title) {
+            toast({
+                title: "Title is required",
+                description: "Please, insert a title before submitting the image."
+            })
+
+            setIsSubmitting(false);
+
+            return;
+        }
+
         if(data || image) {
             const transformationUrl = getCldImageUrl({
                 width: image?.width,
@@ -92,6 +103,8 @@ const TransformationForm = ({action, data = null, userId, type, creditBalance, c
                         userId,
                         path: "/"
                     });
+
+                    console.log("Here")
 
                     if(newImage) {
                         form.reset();
