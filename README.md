@@ -1,36 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">🤖Egamia</h1>
 
-## Getting Started
+![](https://github.com/kaiowsz/egamia/blob/main/public/egamia_front.png)
 
-First, run the development server:
+## :question: About this project
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Egamia is a AI-powered SAAS that works transforming images using the power of AI. You can refine, recolor, resize - and much more - your images using this application.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## :computer: Technologies used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<li>ReactJS</li>
+<li>NextJS</li>
+<li>TypeScript</li>
+<li>TailwindCSS</li>
+<li>ShadCN UI</li>
+<li>Stripe (integrating payment methods)</li>
+<li>MongoDB and Mongoose for database implementation</li>
+<li>Zod for form validation</li>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+##
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Cheers :clinking_glasses:
